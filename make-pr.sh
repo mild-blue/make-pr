@@ -24,6 +24,15 @@ then
    helpFunction
 fi
 
+current_branch=$(git branch --show-current)
+if [ -z "$current_branch" ];
+then
+    echo "Git not setup, this cannot work"
+    exit 1
+fi
+
+
+
 issue_title=$(gh issue view "$issue" | sed -n 1p| sed "s/title:\t//g"  )
 
 if [ -z "$issue_title" ];
@@ -41,4 +50,4 @@ git checkout -b "$branch_name"
 git commit --allow-empty -m "make pull request"
 git push -u origin "$branch_name"
 
-gh pr create --title "$issue_title" --body "Closes #$issue"
+gh pr create --title "$issue_title" --body "Closes #$issue" -B $current_branch
