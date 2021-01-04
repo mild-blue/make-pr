@@ -50,4 +50,4 @@ git checkout -b "$branch_name"
 git commit --allow-empty -m "make pull request"
 git push -u origin "$branch_name"
 
-gh pr create --title "$issue_title" --body "Closes #$issue" -B $current_branch
+gh pr create --title "$issue_title" --body "Closes #$issue" -B $current_branch --draft
