@@ -9,7 +9,7 @@ You need to install and setup gh cli to make this work. Should be easy: https://
 
 ## Adding to PATH
 In order to execute the script without calling it with the full path, one can add this repo to `PATH`:
-* run `pwd` commmand
+* run `pwd` commmand in this `make-pr` repo
 * open `~/.bashrc` or `~/.zshrc` depending on your shell
 * add the following line to the file (replace `<output of pwd>` with the actuall output)
 ```bash
