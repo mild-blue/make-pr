@@ -42,7 +42,7 @@ then
 fi
 
 
-issue_title_cleaned=$(echo "$issue_title" | sed "s/ /_/g" | tr '[:upper:]' '[:lower:]')
+issue_title_cleaned=$(echo "$issue_title" | sed "s/ /_/g" | tr '[:upper:]' '[:lower:]' | cut -c 1-50 )
 
 branch_name="$issue"_"$issue_title_cleaned"
 
