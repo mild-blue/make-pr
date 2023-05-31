@@ -41,8 +41,8 @@ then
     exit 1
 fi
 
-
-issue_title_cleaned=$(echo "$issue_title" | sed "s/ /_/g" | tr '[:upper:]' '[:lower:]' | cut -c 1-50 )
+#                                           replace the diacritics   | spaces -> _   | remove all unknown characters | to lower                | only first 50 chars
+issue_title_cleaned=$(echo "$issue_title" | iconv -t ascii//TRANSLIT | sed "s/ /_/g" | sed "s/[^a-zA-Z1-9\-_]//g" | tr '[:upper:]' '[:lower:]' | cut -c 1-50 )
 
 branch_name="$issue"_"$issue_title_cleaned"
 
